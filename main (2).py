@@ -1,25 +1,21 @@
-class Student:  # Class names should start with a capital letter
+# Python program to check if year is a leap year or not
 
-    def __init__(self, name, roll_number, cgpa):  # Corrected the constructor
-        self.name = name
-        self.roll_number = roll_number
-        self.cgpa = cgpa
+year = 2000
 
-def sort_students(student_list):
-    # Sort the list of students in descending order of CGPA
-    sorted_students = sorted(student_list, key=lambda student: student.cgpa, reverse=True)
-    return sorted_students
+# To get year (integer input) from the user
+# year = int(input("Enter a year: "))
 
-# Example usage:
-students = [
-    Student("Hari", "A123", 7.8),
-    Student("Srikanth", "A124", 8.9),
-    Student("Saunmya", "A125", 9.1),
-    Student("Mahidhar", "A126", 9.9),
-]
+# divided by 100 means century year (ending with 00)
+# century year divided by 400 is leap year
+if (year % 400 == 0) and (year % 100 == 0):
+    print("{0} is a leap year".format(year))
 
-sorted_students = sort_students(students)
+# not divided by 100 means not a century year
+# year divided by 4 is a leap year
+elif (year % 4 ==0) and (year % 100 != 0):
+    print("{0} is a leap year".format(year))
 
-# Print the sorted list of students
-for student in sorted_students:
-    print("Name: {}, Roll Number: {}, CGPA: {:.2f}".format(student.name, student.roll_number, student.cgpa))
+# if not divided by both 400 (century year) and 4 (not century year)
+# year is not leap year
+else:
+    print("{0} is not a leap year".format(year))
